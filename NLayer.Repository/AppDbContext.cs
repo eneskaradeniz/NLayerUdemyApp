@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.Core;
+using System.Reflection;
 
 namespace NLayer.Repository
 {
@@ -16,5 +17,12 @@ namespace NLayer.Repository
 
         // Öğrenme açısından burası açık yoksa products üzerinden işlemler yapılmalı
         public DbSet<ProductFeature> ProductFeatures { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        { 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
