@@ -4,7 +4,7 @@ namespace NLayer.Core.Repositories
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<List<Product>> GetProductsWithCategory();
+        Task<List<Product>> GetProductsWithCategoryAsync();
 
 
     }
