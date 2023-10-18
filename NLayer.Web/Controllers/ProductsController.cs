@@ -70,7 +70,7 @@ namespace NLayer.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _productService.UpdateAsync(_mapper.Map<Product>(productDto));
-
+                return RedirectToAction(nameof(Index));
             }
 
             var categories = await _categoryService.GetAllAsync();
