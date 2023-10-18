@@ -63,7 +63,7 @@ namespace NLayer.API.Controllers
 
         // DELETE api/products/{id}
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Remove(int id)
         {
             var product = await _productService.GetByIdAsync(id);
             await _productService.RemoveAsync(product);
