@@ -26,7 +26,7 @@ namespace NLayer.Web.Controllers
             return View(result);
         }
 
-        public async Task<IActionResult> Save()
+        public async Task<IActionResult> Create()
         {
             var categories = await _categoryService.GetAllAsync();
             var categoriesDto = _mapper.Map<List<CategoryDto>>(categories.ToList());
@@ -36,7 +36,7 @@ namespace NLayer.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(ProductDto productDto)
+        public async Task<IActionResult> Create(ProductDto productDto)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace NLayer.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(ProductDto productDto)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await _productService.UpdateAsync(_mapper.Map<Product>(productDto));
 
@@ -79,4 +79,5 @@ namespace NLayer.Web.Controllers
 
             return View(productDto);
         }
+    }
 }
