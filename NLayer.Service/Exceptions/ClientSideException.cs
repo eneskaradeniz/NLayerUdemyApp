@@ -6,7 +6,7 @@ namespace NLayer.Service.Exceptions
     {
         public ClientSideException(string message) : base(message)
         {
-            
+
         }
     }
 }

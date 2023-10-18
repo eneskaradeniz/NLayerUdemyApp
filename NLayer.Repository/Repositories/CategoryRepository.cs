@@ -14,7 +14,7 @@ namespace NLayer.Repository.Repositories
         {
             return await _context.Categories
                 .Include(x => x.Products)
-                .Where(x=>x.Id==categoryId)
+                .Where(x => x.Id == categoryId)
                 .SingleOrDefaultAsync();
         }
     }

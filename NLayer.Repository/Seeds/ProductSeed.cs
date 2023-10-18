@@ -9,8 +9,8 @@ namespace NLayer.Repository.Seeds
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasData(
-                new Product 
-                { 
+                new Product
+                {
                     Id = 1,
                     Name = "Kalem 1",
                     CategoryId = 1,
