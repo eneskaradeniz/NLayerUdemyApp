@@ -22,11 +22,6 @@ namespace NLayer.Web.Services
         {
             var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<ProductDto>>($"products/{id}");
 
-            if (response.Errors.Any())
-            {
-                // hata varsa
-            }
-
             return response.Data;
         }
 
@@ -51,6 +46,8 @@ namespace NLayer.Web.Services
         public async Task<bool> RemoveAsync(int id)
         {
             var response = await _httpClient.DeleteAsync($"products/{id}");
+
+            Console.WriteLine(response.StatusCode);
 
             return response.IsSuccessStatusCode;
         }
