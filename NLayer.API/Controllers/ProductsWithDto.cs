@@ -3,6 +3,7 @@ using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Models;
 using NLayer.Core.Services;
+using NLayer.Service.Services;
 
 namespace NLayer.API.Controllers
 {
@@ -56,6 +57,19 @@ namespace NLayer.API.Controllers
         public async Task<IActionResult> Remove(int id)
         {
             return CreateActionResult(await _productServiceWithDto.RemoveAsync(id));
+        }
+
+        // ProductDto yerine ProductCreateDto alınması gerekiyor
+        [HttpPost("CreateAll")]
+        public async Task<IActionResult> Create(List<ProductDto> productsDtos)
+        {
+            return CreateActionResult(await _productServiceWithDto.AddRangeAsync(productsDtos));
+        }
+        
+        [HttpGet("Any/{id}")]
+        public async Task<IActionResult> Any(int id)
+        {
+            return CreateActionResult(await _productServiceWithDto.AnyAsync(x => x.Id == id));
         }
     }
 }
