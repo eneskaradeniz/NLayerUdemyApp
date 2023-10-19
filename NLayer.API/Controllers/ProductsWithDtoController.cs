@@ -7,11 +7,11 @@ using NLayer.Service.Services;
 
 namespace NLayer.API.Controllers
 {
-    public class ProductsWithDto : CustomBaseController
+    public class ProductsWithDtoController : CustomBaseController
     {
         private readonly IProductServiceWithDto _productServiceWithDto;
 
-        public ProductsWithDto(IProductServiceWithDto productServiceWithDto)
+        public ProductsWithDtoController(IProductServiceWithDto productServiceWithDto)
         {
             _productServiceWithDto = productServiceWithDto;
         }
