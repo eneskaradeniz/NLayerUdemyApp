@@ -13,7 +13,6 @@ namespace NLayer.Repository.Repositories
 
         public async Task<List<Product>> GetProductsWithCategoryAsync()
         {
-            // Eager loading => product çekerne categoryleride al dedik
             return await _context.Products.Include(x => x.Category).ToListAsync();
         }
     }
